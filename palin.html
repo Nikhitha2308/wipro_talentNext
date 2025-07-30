@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+</head>
+<body>
+    <h5>Enter the number to check for palindrome:</h5>
+    <input type="text" placeholder="Enter the number">
+    <input type="button" value="Check" onclick="checkNumber()">
+    <p id="palindromeResult"></p>
+    <h5>Enter number for fibonacci:</h5>
+    <input type="text" placeholder="Enter the number">
+    <input type="button" value="Check" onclick="checkNumber1()">
+    <h5>Enter number for factorial:</h5>
+    <input type="text" placeholder="Enter the number">
+    <input type="button" value="Check" onclick="checkNumber2()">
+    <script>
+    function checkNumber() {
+        const input = document.querySelector('input[type="text"]').value;
+        const isPalindrome = input === input.split('').reverse().join('');
+        alert(isPalindrome ? 'The number is a palindrome' : 'The number is not a palindrome');
+    }
+    function checkNumber1() {
+        const input = document.querySelectorAll('input[type="text"]')[1].value;
+        let a = 0, b = 1, c;
+        let result = [a, b];
+        for (let i = 2; i < input; i++) {
+            c = a + b;
+            result.push(c);
+            a = b;
+            b = c;
+        }
+        alert('Fibonacci series: ' + result.join(', '));
+    }
+    function checkNumber2() {
+        const input = document.querySelectorAll('input[type="text"]')[2].value;
+        let factorial = 1;
+        for (let i = 1; i <= input; i++) {
+            factorial *= i;
+        }
+        alert('Factorial: ' + factorial);
+    }
+    </script>
+  
+</body>
+</html>
